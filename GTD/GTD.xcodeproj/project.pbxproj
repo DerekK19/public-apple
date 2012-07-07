@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* GTDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* GTDAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2804200B108E984D000629CD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28042008108E984D000629CD /* RootViewController.m */; };
+		280420C1108EA07E000629CD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 280420C0108EA07E000629CD /* CoreData.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		6531A62C12865B8600195EF4 /* BaseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6531A62B12865B8600195EF4 /* BaseDetailViewController.m */; };
+		6531A62F1286632C00195EF4 /* RootDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6531A62E1286632C00195EF4 /* RootDetailViewController.m */; };
+		6580F6A0128A5D5600A58450 /* StuffModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6580F69F128A5D5600A58450 /* StuffModel.m */; };
+		659F94121245D86200786C55 /* ThingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F94101245D86200786C55 /* ThingsViewController.m */; };
+		659F94181245DA3100786C55 /* StuffViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F94161245DA3100786C55 /* StuffViewController.m */; };
+		659F941D1245DA5200786C55 /* DoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F941B1245DA5200786C55 /* DoViewController.m */; };
+		659F943A1246178200786C55 /* StuffDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F94381246178200786C55 /* StuffDetailViewController.m */; };
+		659F947F1248B5D300786C55 /* DoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659F947D1248B5D300786C55 /* DoDetailViewController.m */; };
+		65C2E65B12890B3400C541B2 /* GTD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65C2E65912890B3400C541B2 /* GTD.xcdatamodeld */; };
+		65D2E58E128F740F004D8B25 /* ModelFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D2E58D128F740F004D8B25 /* ModelFactory.m */; };
+		65D6B1A512640C2800B90DD7 /* things-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65D6B1A412640C2800B90DD7 /* things-icon.png */; };
+		65FB87871285164500014BBE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FB87861285164500014BBE /* BaseViewController.m */; };
+		65FD85C61287B1480076DCE4 /* DoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FD85BF1287B1480076DCE4 /* DoDetailViewController.xib */; };
+		65FD85C71287B1480076DCE4 /* DoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FD85C01287B1480076DCE4 /* DoViewController.xib */; };
+		65FD85C81287B1480076DCE4 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FD85C11287B1480076DCE4 /* MainWindow.xib */; };
+		65FD85C91287B1480076DCE4 /* RootDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FD85C21287B1480076DCE4 /* RootDetailViewController.xib */; };
+		65FD85CA1287B1480076DCE4 /* StuffDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FD85C31287B1480076DCE4 /* StuffDetailViewController.xib */; };
+		65FD85CB1287B1480076DCE4 /* StuffViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FD85C41287B1480076DCE4 /* StuffViewController.xib */; };
+		65FD85CC1287B1480076DCE4 /* ThingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FD85C51287B1480076DCE4 /* ThingsViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		654DFB261289047E00A967B6 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = wrapper.xcdatamodel;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "$(SYSTEM_DEVELOPER_DIR)/usr/bin/momc\n";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* GTDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* GTDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* GTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28042007108E984D000629CD /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		28042008108E984D000629CD /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		280420C0108EA07E000629CD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AAE50D9B0CCF005BE974 /* GTD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTD_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6531A62A12865B8600195EF4 /* BaseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDetailViewController.h; sourceTree = "<group>"; };
+		6531A62B12865B8600195EF4 /* BaseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDetailViewController.m; sourceTree = "<group>"; };
+		6531A62D1286632C00195EF4 /* RootDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootDetailViewController.h; sourceTree = "<group>"; };
+		6531A62E1286632C00195EF4 /* RootDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootDetailViewController.m; sourceTree = "<group>"; };
+		6550E9EA12867C9F0057DA16 /* GTD-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GTD-Info.plist"; sourceTree = "<group>"; };
+		6580F69E128A5D5600A58450 /* StuffModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StuffModel.h; path = Classes/StuffModel.h; sourceTree = "<group>"; };
+		6580F69F128A5D5600A58450 /* StuffModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StuffModel.m; path = Classes/StuffModel.m; sourceTree = "<group>"; };
+		659F940F1245D86200786C55 /* ThingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThingsViewController.h; sourceTree = "<group>"; };
+		659F94101245D86200786C55 /* ThingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThingsViewController.m; sourceTree = "<group>"; };
+		659F94151245DA3100786C55 /* StuffViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StuffViewController.h; sourceTree = "<group>"; };
+		659F94161245DA3100786C55 /* StuffViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StuffViewController.m; sourceTree = "<group>"; };
+		659F941A1245DA5200786C55 /* DoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoViewController.h; sourceTree = "<group>"; };
+		659F941B1245DA5200786C55 /* DoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoViewController.m; sourceTree = "<group>"; };
+		659F94371246178200786C55 /* StuffDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StuffDetailViewController.h; sourceTree = "<group>"; };
+		659F94381246178200786C55 /* StuffDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StuffDetailViewController.m; sourceTree = "<group>"; };
+		659F947C1248B5D300786C55 /* DoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoDetailViewController.h; sourceTree = "<group>"; };
+		659F947D1248B5D300786C55 /* DoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoDetailViewController.m; sourceTree = "<group>"; };
+		65C2E65A12890B3400C541B2 /* GTD.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = GTD.xcdatamodel; sourceTree = "<group>"; };
+		65D2E58C128F740F004D8B25 /* ModelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelFactory.h; path = Classes/ModelFactory.h; sourceTree = "<group>"; };
+		65D2E58D128F740F004D8B25 /* ModelFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelFactory.m; path = Classes/ModelFactory.m; sourceTree = "<group>"; };
+		65D6B1A412640C2800B90DD7 /* things-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "things-icon.png"; sourceTree = "<group>"; };
+		65FB87851285164500014BBE /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		65FB87861285164500014BBE /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		65FD85BF1287B1480076DCE4 /* DoDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoDetailViewController.xib; sourceTree = "<group>"; };
+		65FD85C01287B1480076DCE4 /* DoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoViewController.xib; sourceTree = "<group>"; };
+		65FD85C11287B1480076DCE4 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		65FD85C21287B1480076DCE4 /* RootDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootDetailViewController.xib; sourceTree = "<group>"; };
+		65FD85C31287B1480076DCE4 /* StuffDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StuffDetailViewController.xib; sourceTree = "<group>"; };
+		65FD85C41287B1480076DCE4 /* StuffViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StuffViewController.xib; sourceTree = "<group>"; };
+		65FD85C51287B1480076DCE4 /* ThingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThingsViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				280420C1108EA07E000629CD /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6531A62D1286632C00195EF4 /* RootDetailViewController.h */,
+				6531A62E1286632C00195EF4 /* RootDetailViewController.m */,
+				6531A62A12865B8600195EF4 /* BaseDetailViewController.h */,
+				6531A62B12865B8600195EF4 /* BaseDetailViewController.m */,
+				65FB87851285164500014BBE /* BaseViewController.h */,
+				65FB87861285164500014BBE /* BaseViewController.m */,
+				659F941A1245DA5200786C55 /* DoViewController.h */,
+				659F941B1245DA5200786C55 /* DoViewController.m */,
+				659F947C1248B5D300786C55 /* DoDetailViewController.h */,
+				659F947D1248B5D300786C55 /* DoDetailViewController.m */,
+				659F94151245DA3100786C55 /* StuffViewController.h */,
+				659F94161245DA3100786C55 /* StuffViewController.m */,
+				659F94371246178200786C55 /* StuffDetailViewController.h */,
+				659F94381246178200786C55 /* StuffDetailViewController.m */,
+				1D3623240D0F684500981E51 /* GTDAppDelegate.h */,
+				1D3623250D0F684500981E51 /* GTDAppDelegate.m */,
+				28042007108E984D000629CD /* RootViewController.h */,
+				28042008108E984D000629CD /* RootViewController.m */,
+				659F940F1245D86200786C55 /* ThingsViewController.h */,
+				659F94101245D86200786C55 /* ThingsViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* GTD.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				654DFB271289079F00A967B6 /* Models */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				65FD85BF1287B1480076DCE4 /* DoDetailViewController.xib */,
+				65FD85C01287B1480076DCE4 /* DoViewController.xib */,
+				65FD85C11287B1480076DCE4 /* MainWindow.xib */,
+				65FD85C21287B1480076DCE4 /* RootDetailViewController.xib */,
+				65FD85C31287B1480076DCE4 /* StuffDetailViewController.xib */,
+				65FD85C41287B1480076DCE4 /* StuffViewController.xib */,
+				65FD85C51287B1480076DCE4 /* ThingsViewController.xib */,
+				28A0AAE50D9B0CCF005BE974 /* GTD_Prefix.pch */,
+				6550E9EA12867C9F0057DA16 /* GTD-Info.plist */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				65D6B1A412640C2800B90DD7 /* things-icon.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				280420C0108EA07E000629CD /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		654DFB271289079F00A967B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				65D2E58C128F740F004D8B25 /* ModelFactory.h */,
+				65D2E58D128F740F004D8B25 /* ModelFactory.m */,
+				6580F69E128A5D5600A58450 /* StuffModel.h */,
+				6580F69F128A5D5600A58450 /* StuffModel.m */,
+				65C2E65912890B3400C541B2 /* GTD.xcdatamodeld */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* GTD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GTD" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+				654DFB261289047E00A967B6 /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = GTD;
+			productName = GTD;
+			productReference = 1D6058910D05DD3D006BFB54 /* GTD.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GTD" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* GTD */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65D6B1A512640C2800B90DD7 /* things-icon.png in Resources */,
+				65FD85C61287B1480076DCE4 /* DoDetailViewController.xib in Resources */,
+				65FD85C71287B1480076DCE4 /* DoViewController.xib in Resources */,
+				65FD85C81287B1480076DCE4 /* MainWindow.xib in Resources */,
+				65FD85C91287B1480076DCE4 /* RootDetailViewController.xib in Resources */,
+				65FD85CA1287B1480076DCE4 /* StuffDetailViewController.xib in Resources */,
+				65FD85CB1287B1480076DCE4 /* StuffViewController.xib in Resources */,
+				65FD85CC1287B1480076DCE4 /* ThingsViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* GTDAppDelegate.m in Sources */,
+				2804200B108E984D000629CD /* RootViewController.m in Sources */,
+				659F94121245D86200786C55 /* ThingsViewController.m in Sources */,
+				659F94181245DA3100786C55 /* StuffViewController.m in Sources */,
+				659F941D1245DA5200786C55 /* DoViewController.m in Sources */,
+				659F943A1246178200786C55 /* StuffDetailViewController.m in Sources */,
+				659F947F1248B5D300786C55 /* DoDetailViewController.m in Sources */,
+				65FB87871285164500014BBE /* BaseViewController.m in Sources */,
+				6531A62C12865B8600195EF4 /* BaseDetailViewController.m in Sources */,
+				6531A62F1286632C00195EF4 /* RootDetailViewController.m in Sources */,
+				65C2E65B12890B3400C541B2 /* GTD.xcdatamodeld in Sources */,
+				6580F6A0128A5D5600A58450 /* StuffModel.m in Sources */,
+				65D2E58E128F740F004D8B25 /* ModelFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GTD_Prefix.pch;
+				INFOPLIST_FILE = "GTD-Info.plist";
+				PRODUCT_NAME = GTD;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GTD_Prefix.pch;
+				INFOPLIST_FILE = "GTD-Info.plist";
+				PRODUCT_NAME = GTD;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GTD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GTD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		65C2E65912890B3400C541B2 /* GTD.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				65C2E65A12890B3400C541B2 /* GTD.xcdatamodel */,
+			);
+			currentVersion = 65C2E65A12890B3400C541B2 /* GTD.xcdatamodel */;
+			path = GTD.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

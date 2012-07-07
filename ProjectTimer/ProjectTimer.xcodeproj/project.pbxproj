@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		652D0A191391B7FB00A6023E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652D0A181391B7FB00A6023E /* UIKit.framework */; };
+		652D0A1B1391B7FB00A6023E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652D0A1A1391B7FB00A6023E /* Foundation.framework */; };
+		652D0A1D1391B7FB00A6023E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652D0A1C1391B7FB00A6023E /* CoreGraphics.framework */; };
+		652D0A1F1391B7FB00A6023E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 652D0A1E1391B7FB00A6023E /* CoreData.framework */; };
+		652D0A251391B7FB00A6023E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 652D0A231391B7FB00A6023E /* InfoPlist.strings */; };
+		652D0A281391B7FC00A6023E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A271391B7FC00A6023E /* main.m */; };
+		652D0A2B1391B7FC00A6023E /* ProjectTimerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A2A1391B7FC00A6023E /* ProjectTimerAppDelegate.m */; };
+		652D0A2E1391B7FC00A6023E /* MainWindow-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652D0A2C1391B7FC00A6023E /* MainWindow-iPhone.xib */; };
+		652D0A341391B7FC00A6023E /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A331391B7FC00A6023E /* TaskViewController.m */; };
+		652D0A371391B7FC00A6023E /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A361391B7FC00A6023E /* EventViewController.m */; };
+		652D0A3A1391B7FC00A6023E /* TaskView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652D0A381391B7FC00A6023E /* TaskView-iPhone.xib */; };
+		652D0A3D1391B7FC00A6023E /* EventView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652D0A3B1391B7FC00A6023E /* EventView-iPhone.xib */; };
+		652D0A4A1391B91F00A6023E /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652D0A481391B91F00A6023E /* MainWindow-iPad.xib */; };
+		652D0A4C1391C06000A6023E /* ProjectTimer-icon-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 652D0A4B1391C06000A6023E /* ProjectTimer-icon-57x57.png */; };
+		652D0A4E1391C06900A6023E /* ProjectTimer-icon-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 652D0A4D1391C06900A6023E /* ProjectTimer-icon-114x114.png */; };
+		652D0A501391C0D200A6023E /* ProjectTimer-icon-72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 652D0A4F1391C0D200A6023E /* ProjectTimer-icon-72x72.png */; };
+		652D0A611391C6A000A6023E /* TaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A601391C6A000A6023E /* TaskModel.m */; };
+		652D0A641391C75500A6023E /* EventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A631391C75500A6023E /* EventModel.m */; };
+		652D0A671391CA3600A6023E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A661391CA3600A6023E /* BaseViewController.m */; };
+		652D0A6D1391CAD100A6023E /* ProjectTimer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A6B1391CAD100A6023E /* ProjectTimer.xcdatamodeld */; };
+		652D0A781391CFEF00A6023E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A771391CFEF00A6023E /* BaseModel.m */; };
+		652D0A8113920F4F00A6023E /* TaskNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A8013920F4F00A6023E /* TaskNavigationController.m */; };
+		652D0A8413920FB800A6023E /* TaskNavigation-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652D0A8213920FB800A6023E /* TaskNavigation-iPhone.xib */; };
+		652D0A8713998AB000A6023E /* ViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A8613998AAF00A6023E /* ViewFactory.m */; };
+		652D0A8A13998F6300A6023E /* TableViewCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652D0A8813998F6300A6023E /* TableViewCells.xib */; };
+		652D0A8D1399CA0800A6023E /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652D0A8C1399CA0700A6023E /* TaskDetailViewController.m */; };
+		652D0A901399CA6100A6023E /* TaskDetailView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 652D0A8E1399CA6100A6023E /* TaskDetailView-iPhone.xib */; };
+		6567650C139C6AAC004FB788 /* CurrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6567650B139C6AAC004FB788 /* CurrentViewController.m */; };
+		65676510139C6B12004FB788 /* CurrentView-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6567650E139C6B12004FB788 /* CurrentView-iPhone.xib */; };
+		65676513139C719E004FB788 /* CurrentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65676512139C719E004FB788 /* CurrentTableViewCell.m */; };
+		65676516139CA289004FB788 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = 65676515139CA288004FB788 /* Repository.m */; };
+		659B400D139A02FA001D2002 /* TaskDetailEdit-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 659B400B139A02FA001D2002 /* TaskDetailEdit-iPhone.xib */; };
+		659B4010139A0342001D2002 /* TaskDetailEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659B400F139A0342001D2002 /* TaskDetailEditController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		652D0A141391B7FB00A6023E /* ProjectTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		652D0A181391B7FB00A6023E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		652D0A1A1391B7FB00A6023E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		652D0A1C1391B7FB00A6023E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		652D0A1E1391B7FB00A6023E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		652D0A221391B7FB00A6023E /* ProjectTimer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProjectTimer-Info.plist"; sourceTree = "<group>"; };
+		652D0A241391B7FB00A6023E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		652D0A261391B7FB00A6023E /* ProjectTimer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProjectTimer-Prefix.pch"; sourceTree = "<group>"; };
+		652D0A271391B7FC00A6023E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		652D0A291391B7FC00A6023E /* ProjectTimerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectTimerAppDelegate.h; sourceTree = "<group>"; };
+		652D0A2A1391B7FC00A6023E /* ProjectTimerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectTimerAppDelegate.m; sourceTree = "<group>"; };
+		652D0A2D1391B7FC00A6023E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/MainWindow-iPhone.xib"; sourceTree = "<group>"; };
+		652D0A321391B7FC00A6023E /* TaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TaskViewController.h; path = Controllers/TaskViewController.h; sourceTree = "<group>"; };
+		652D0A331391B7FC00A6023E /* TaskViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TaskViewController.m; path = Controllers/TaskViewController.m; sourceTree = "<group>"; };
+		652D0A351391B7FC00A6023E /* EventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EventViewController.h; path = Controllers/EventViewController.h; sourceTree = "<group>"; };
+		652D0A361391B7FC00A6023E /* EventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EventViewController.m; path = Controllers/EventViewController.m; sourceTree = "<group>"; };
+		652D0A391391B7FC00A6023E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/TaskView-iPhone.xib"; sourceTree = "<group>"; };
+		652D0A3C1391B7FC00A6023E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/EventView-iPhone.xib"; sourceTree = "<group>"; };
+		652D0A491391B91F00A6023E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		652D0A4B1391C06000A6023E /* ProjectTimer-icon-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ProjectTimer-icon-57x57.png"; sourceTree = "<group>"; };
+		652D0A4D1391C06900A6023E /* ProjectTimer-icon-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ProjectTimer-icon-114x114.png"; sourceTree = "<group>"; };
+		652D0A4F1391C0D200A6023E /* ProjectTimer-icon-72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ProjectTimer-icon-72x72.png"; sourceTree = "<group>"; };
+		652D0A5E1391C38400A6023E /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logging.h; path = General/Logging.h; sourceTree = "<group>"; };
+		652D0A5F1391C6A000A6023E /* TaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskModel.h; path = Models/TaskModel.h; sourceTree = "<group>"; };
+		652D0A601391C6A000A6023E /* TaskModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskModel.m; path = Models/TaskModel.m; sourceTree = "<group>"; };
+		652D0A621391C75500A6023E /* EventModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventModel.h; path = Models/EventModel.h; sourceTree = "<group>"; };
+		652D0A631391C75500A6023E /* EventModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventModel.m; path = Models/EventModel.m; sourceTree = "<group>"; };
+		652D0A651391CA3600A6023E /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = Controllers/BaseViewController.h; sourceTree = "<group>"; };
+		652D0A661391CA3600A6023E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = Controllers/BaseViewController.m; sourceTree = "<group>"; };
+		652D0A6C1391CAD100A6023E /* ProjectTimer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProjectTimer.xcdatamodel; sourceTree = "<group>"; };
+		652D0A761391CFEE00A6023E /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseModel.h; path = Models/BaseModel.h; sourceTree = "<group>"; };
+		652D0A771391CFEF00A6023E /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseModel.m; path = Models/BaseModel.m; sourceTree = "<group>"; };
+		652D0A7F13920F4E00A6023E /* TaskNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskNavigationController.h; path = Controllers/TaskNavigationController.h; sourceTree = "<group>"; };
+		652D0A8013920F4F00A6023E /* TaskNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskNavigationController.m; path = Controllers/TaskNavigationController.m; sourceTree = "<group>"; };
+		652D0A8313920FB800A6023E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/TaskNavigation-iPhone.xib"; sourceTree = "<group>"; };
+		652D0A8513998AAD00A6023E /* ViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewFactory.h; path = Controllers/ViewFactory.h; sourceTree = "<group>"; };
+		652D0A8613998AAF00A6023E /* ViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewFactory.m; path = Controllers/ViewFactory.m; sourceTree = "<group>"; };
+		652D0A8913998F6300A6023E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TableViewCells.xib; sourceTree = "<group>"; };
+		652D0A8B1399CA0600A6023E /* TaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetailViewController.h; path = Controllers/TaskDetailViewController.h; sourceTree = "<group>"; };
+		652D0A8C1399CA0700A6023E /* TaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetailViewController.m; path = Controllers/TaskDetailViewController.m; sourceTree = "<group>"; };
+		652D0A8F1399CA6100A6023E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/TaskDetailView-iPhone.xib"; sourceTree = "<group>"; };
+		6567650A139C6AAC004FB788 /* CurrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentViewController.h; path = Controllers/CurrentViewController.h; sourceTree = "<group>"; };
+		6567650B139C6AAC004FB788 /* CurrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentViewController.m; path = Controllers/CurrentViewController.m; sourceTree = "<group>"; };
+		6567650F139C6B12004FB788 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/CurrentView-iPhone.xib"; sourceTree = "<group>"; };
+		65676511139C719E004FB788 /* CurrentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentTableViewCell.h; path = Controllers/CurrentTableViewCell.h; sourceTree = "<group>"; };
+		65676512139C719E004FB788 /* CurrentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentTableViewCell.m; path = Controllers/CurrentTableViewCell.m; sourceTree = "<group>"; };
+		65676514139CA288004FB788 /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Repository.h; path = Models/Repository.h; sourceTree = "<group>"; };
+		65676515139CA288004FB788 /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Repository.m; path = Models/Repository.m; sourceTree = "<group>"; };
+		659B4009139A019B001D2002 /* General.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = General.h; path = General/General.h; sourceTree = "<group>"; };
+		659B400C139A02FA001D2002 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/TaskDetailEdit-iPhone.xib"; sourceTree = "<group>"; };
+		659B400E139A0342001D2002 /* TaskDetailEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDetailEditController.h; path = Controllers/TaskDetailEditController.h; sourceTree = "<group>"; };
+		659B400F139A0342001D2002 /* TaskDetailEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDetailEditController.m; path = Controllers/TaskDetailEditController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		652D0A111391B7FB00A6023E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				652D0A191391B7FB00A6023E /* UIKit.framework in Frameworks */,
+				652D0A1B1391B7FB00A6023E /* Foundation.framework in Frameworks */,
+				652D0A1D1391B7FB00A6023E /* CoreGraphics.framework in Frameworks */,
+				652D0A1F1391B7FB00A6023E /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		652D0A091391B7FB00A6023E = {
+			isa = PBXGroup;
+			children = (
+				652D0A201391B7FB00A6023E /* ProjectTimer */,
+				652D0A171391B7FB00A6023E /* Frameworks */,
+				652D0A151391B7FB00A6023E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		652D0A151391B7FB00A6023E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				652D0A141391B7FB00A6023E /* ProjectTimer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		652D0A171391B7FB00A6023E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				652D0A181391B7FB00A6023E /* UIKit.framework */,
+				652D0A1A1391B7FB00A6023E /* Foundation.framework */,
+				652D0A1C1391B7FB00A6023E /* CoreGraphics.framework */,
+				652D0A1E1391B7FB00A6023E /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		652D0A201391B7FB00A6023E /* ProjectTimer */ = {
+			isa = PBXGroup;
+			children = (
+				652D0A461391B90400A6023E /* General */,
+				652D0A451391B8AF00A6023E /* Models */,
+				652D0A441391B89600A6023E /* Controllers */,
+				652D0A431391B88100A6023E /* iPhone */,
+				652D0A471391B91B00A6023E /* iPad */,
+				652D0A291391B7FC00A6023E /* ProjectTimerAppDelegate.h */,
+				652D0A2A1391B7FC00A6023E /* ProjectTimerAppDelegate.m */,
+				652D0A511391C18200A6023E /* Resources */,
+				652D0A211391B7FB00A6023E /* Supporting Files */,
+			);
+			path = ProjectTimer;
+			sourceTree = "<group>";
+		};
+		652D0A211391B7FB00A6023E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				652D0A221391B7FB00A6023E /* ProjectTimer-Info.plist */,
+				652D0A231391B7FB00A6023E /* InfoPlist.strings */,
+				652D0A261391B7FB00A6023E /* ProjectTimer-Prefix.pch */,
+				652D0A271391B7FC00A6023E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		652D0A431391B88100A6023E /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				652D0A8813998F6300A6023E /* TableViewCells.xib */,
+				652D0A2C1391B7FC00A6023E /* MainWindow-iPhone.xib */,
+				6567650E139C6B12004FB788 /* CurrentView-iPhone.xib */,
+				652D0A8213920FB800A6023E /* TaskNavigation-iPhone.xib */,
+				652D0A381391B7FC00A6023E /* TaskView-iPhone.xib */,
+				652D0A8E1399CA6100A6023E /* TaskDetailView-iPhone.xib */,
+				659B400B139A02FA001D2002 /* TaskDetailEdit-iPhone.xib */,
+				652D0A3B1391B7FC00A6023E /* EventView-iPhone.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		652D0A441391B89600A6023E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				652D0A8513998AAD00A6023E /* ViewFactory.h */,
+				652D0A8613998AAF00A6023E /* ViewFactory.m */,
+				652D0A651391CA3600A6023E /* BaseViewController.h */,
+				652D0A661391CA3600A6023E /* BaseViewController.m */,
+				65676511139C719E004FB788 /* CurrentTableViewCell.h */,
+				65676512139C719E004FB788 /* CurrentTableViewCell.m */,
+				6567650A139C6AAC004FB788 /* CurrentViewController.h */,
+				6567650B139C6AAC004FB788 /* CurrentViewController.m */,
+				652D0A7F13920F4E00A6023E /* TaskNavigationController.h */,
+				652D0A8013920F4F00A6023E /* TaskNavigationController.m */,
+				652D0A321391B7FC00A6023E /* TaskViewController.h */,
+				652D0A331391B7FC00A6023E /* TaskViewController.m */,
+				652D0A8B1399CA0600A6023E /* TaskDetailViewController.h */,
+				652D0A8C1399CA0700A6023E /* TaskDetailViewController.m */,
+				659B400E139A0342001D2002 /* TaskDetailEditController.h */,
+				659B400F139A0342001D2002 /* TaskDetailEditController.m */,
+				652D0A351391B7FC00A6023E /* EventViewController.h */,
+				652D0A361391B7FC00A6023E /* EventViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		652D0A451391B8AF00A6023E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				652D0A6B1391CAD100A6023E /* ProjectTimer.xcdatamodeld */,
+				65676514139CA288004FB788 /* Repository.h */,
+				65676515139CA288004FB788 /* Repository.m */,
+				652D0A761391CFEE00A6023E /* BaseModel.h */,
+				652D0A771391CFEF00A6023E /* BaseModel.m */,
+				652D0A5F1391C6A000A6023E /* TaskModel.h */,
+				652D0A601391C6A000A6023E /* TaskModel.m */,
+				652D0A621391C75500A6023E /* EventModel.h */,
+				652D0A631391C75500A6023E /* EventModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		652D0A461391B90400A6023E /* General */ = {
+			isa = PBXGroup;
+			children = (
+				652D0A5E1391C38400A6023E /* Logging.h */,
+				659B4009139A019B001D2002 /* General.h */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
+		652D0A471391B91B00A6023E /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				652D0A481391B91F00A6023E /* MainWindow-iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		652D0A511391C18200A6023E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				652D0A4F1391C0D200A6023E /* ProjectTimer-icon-72x72.png */,
+				652D0A4D1391C06900A6023E /* ProjectTimer-icon-114x114.png */,
+				652D0A4B1391C06000A6023E /* ProjectTimer-icon-57x57.png */,
+			);
+			name = Resources;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		652D0A131391B7FB00A6023E /* ProjectTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 652D0A401391B7FC00A6023E /* Build configuration list for PBXNativeTarget "ProjectTimer" */;
+			buildPhases = (
+				652D0A101391B7FB00A6023E /* Sources */,
+				652D0A111391B7FB00A6023E /* Frameworks */,
+				652D0A121391B7FB00A6023E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProjectTimer;
+			productName = ProjectTimer;
+			productReference = 652D0A141391B7FB00A6023E /* ProjectTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		652D0A0B1391B7FB00A6023E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = ASB;
+			};
+			buildConfigurationList = 652D0A0E1391B7FB00A6023E /* Build configuration list for PBXProject "ProjectTimer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 652D0A091391B7FB00A6023E;
+			productRefGroup = 652D0A151391B7FB00A6023E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				652D0A131391B7FB00A6023E /* ProjectTimer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		652D0A121391B7FB00A6023E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				652D0A251391B7FB00A6023E /* InfoPlist.strings in Resources */,
+				652D0A2E1391B7FC00A6023E /* MainWindow-iPhone.xib in Resources */,
+				652D0A3A1391B7FC00A6023E /* TaskView-iPhone.xib in Resources */,
+				652D0A3D1391B7FC00A6023E /* EventView-iPhone.xib in Resources */,
+				652D0A4A1391B91F00A6023E /* MainWindow-iPad.xib in Resources */,
+				652D0A4C1391C06000A6023E /* ProjectTimer-icon-57x57.png in Resources */,
+				652D0A4E1391C06900A6023E /* ProjectTimer-icon-114x114.png in Resources */,
+				652D0A501391C0D200A6023E /* ProjectTimer-icon-72x72.png in Resources */,
+				652D0A8413920FB800A6023E /* TaskNavigation-iPhone.xib in Resources */,
+				652D0A8A13998F6300A6023E /* TableViewCells.xib in Resources */,
+				652D0A901399CA6100A6023E /* TaskDetailView-iPhone.xib in Resources */,
+				659B400D139A02FA001D2002 /* TaskDetailEdit-iPhone.xib in Resources */,
+				65676510139C6B12004FB788 /* CurrentView-iPhone.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		652D0A101391B7FB00A6023E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				652D0A281391B7FC00A6023E /* main.m in Sources */,
+				652D0A2B1391B7FC00A6023E /* ProjectTimerAppDelegate.m in Sources */,
+				652D0A341391B7FC00A6023E /* TaskViewController.m in Sources */,
+				652D0A371391B7FC00A6023E /* EventViewController.m in Sources */,
+				652D0A611391C6A000A6023E /* TaskModel.m in Sources */,
+				652D0A641391C75500A6023E /* EventModel.m in Sources */,
+				652D0A671391CA3600A6023E /* BaseViewController.m in Sources */,
+				652D0A6D1391CAD100A6023E /* ProjectTimer.xcdatamodeld in Sources */,
+				652D0A781391CFEF00A6023E /* BaseModel.m in Sources */,
+				652D0A8113920F4F00A6023E /* TaskNavigationController.m in Sources */,
+				652D0A8713998AB000A6023E /* ViewFactory.m in Sources */,
+				652D0A8D1399CA0800A6023E /* TaskDetailViewController.m in Sources */,
+				659B4010139A0342001D2002 /* TaskDetailEditController.m in Sources */,
+				6567650C139C6AAC004FB788 /* CurrentViewController.m in Sources */,
+				65676513139C719E004FB788 /* CurrentTableViewCell.m in Sources */,
+				65676516139CA289004FB788 /* Repository.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		652D0A231391B7FB00A6023E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				652D0A241391B7FB00A6023E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		652D0A2C1391B7FC00A6023E /* MainWindow-iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				652D0A2D1391B7FC00A6023E /* en */,
+			);
+			name = "MainWindow-iPhone.xib";
+			sourceTree = "<group>";
+		};
+		652D0A381391B7FC00A6023E /* TaskView-iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				652D0A391391B7FC00A6023E /* en */,
+			);
+			name = "TaskView-iPhone.xib";
+			sourceTree = "<group>";
+		};
+		652D0A3B1391B7FC00A6023E /* EventView-iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				652D0A3C1391B7FC00A6023E /* en */,
+			);
+			name = "EventView-iPhone.xib";
+			sourceTree = "<group>";
+		};
+		652D0A481391B91F00A6023E /* MainWindow-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				652D0A491391B91F00A6023E /* en */,
+			);
+			name = "MainWindow-iPad.xib";
+			sourceTree = "<group>";
+		};
+		652D0A8213920FB800A6023E /* TaskNavigation-iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				652D0A8313920FB800A6023E /* en */,
+			);
+			name = "TaskNavigation-iPhone.xib";
+			sourceTree = "<group>";
+		};
+		652D0A8813998F6300A6023E /* TableViewCells.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				652D0A8913998F6300A6023E /* en */,
+			);
+			name = TableViewCells.xib;
+			sourceTree = "<group>";
+		};
+		652D0A8E1399CA6100A6023E /* TaskDetailView-iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				652D0A8F1399CA6100A6023E /* en */,
+			);
+			name = "TaskDetailView-iPhone.xib";
+			sourceTree = "<group>";
+		};
+		6567650E139C6B12004FB788 /* CurrentView-iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6567650F139C6B12004FB788 /* en */,
+			);
+			name = "CurrentView-iPhone.xib";
+			sourceTree = "<group>";
+		};
+		659B400B139A02FA001D2002 /* TaskDetailEdit-iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				659B400C139A02FA001D2002 /* en */,
+			);
+			name = "TaskDetailEdit-iPhone.xib";
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		652D0A3E1391B7FC00A6023E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		652D0A3F1391B7FC00A6023E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		652D0A411391B7FC00A6023E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ProjectTimer/ProjectTimer-Prefix.pch";
+				INFOPLIST_FILE = "ProjectTimer/ProjectTimer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		652D0A421391B7FC00A6023E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ProjectTimer/ProjectTimer-Prefix.pch";
+				INFOPLIST_FILE = "ProjectTimer/ProjectTimer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		652D0A0E1391B7FB00A6023E /* Build configuration list for PBXProject "ProjectTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				652D0A3E1391B7FC00A6023E /* Debug */,
+				652D0A3F1391B7FC00A6023E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		652D0A401391B7FC00A6023E /* Build configuration list for PBXNativeTarget "ProjectTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				652D0A411391B7FC00A6023E /* Debug */,
+				652D0A421391B7FC00A6023E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		652D0A6B1391CAD100A6023E /* ProjectTimer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				652D0A6C1391CAD100A6023E /* ProjectTimer.xcdatamodel */,
+			);
+			currentVersion = 652D0A6C1391CAD100A6023E /* ProjectTimer.xcdatamodel */;
+			name = ProjectTimer.xcdatamodeld;
+			path = Models/ProjectTimer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 652D0A0B1391B7FB00A6023E /* Project object */;
+}
