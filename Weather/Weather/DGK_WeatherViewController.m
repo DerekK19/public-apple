@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#define LOW_LEVEL_DEBUG TRUE
+#define LOW_LEVEL_DEBUG FALSE
 
 #import "Logging.h"
 #import "DGK_WeatherViewController.h"
@@ -124,7 +124,7 @@
                                           [CPTColor colorWithComponentRed:(16.0/255.0) green:(16.0/255.0) blue:(108.0/255.0) alpha:1.0], nil];
 
     CPTScatterPlot *tempPlot = [[CPTScatterPlot alloc] initWithFrame:graph.defaultPlotSpace.accessibilityFrame];
-    tempPlot.interpolation = CPTScatterPlotInterpolationLinear; // CPTScatterPlotInterpolationCurved;
+    tempPlot.interpolation = CPTScatterPlotInterpolationCurved;
     tempPlot.identifier = @"Temperature Plot";
     tempPlot.dataLineStyle = plotLine;
     tempPlot.dataSource = self;
@@ -239,13 +239,35 @@ foundResponse:(NSString *)methodName
         if (angle < 0) angle = 0;
         if (angle > M_PI * 1.74) angle = M_PI * 1.74;
         
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:1.5];
-        
-        arrowImageView.transform = CGAffineTransformMakeRotation(angle);
-        
-        [UIView commitAnimations];    
-        
+        if (abs (angle-lastAngle) < M_PI)
+        {
+            [UIView animateWithDuration:1.0
+                                  delay:0
+                                options:UIViewAnimationCurveEaseInOut
+                             animations:^() {
+                                 arrowImageView.transform = CGAffineTransformMakeRotation(angle);
+                             }
+                             completion:^(BOOL finished) {}];
+        }
+        else // > 180 degreees, so go in two jumps or the needle will move anticlockwise
+        {
+            [UIView animateWithDuration:1.5
+                                  delay:0
+                                options:UIViewAnimationCurveEaseIn
+                             animations:^() {
+                                 arrowImageView.transform = CGAffineTransformMakeRotation((angle+lastAngle)/2);
+                             }
+                             completion:^(BOOL finished) {
+                                 [UIView animateWithDuration:1.5
+                                                       delay:0
+                                                     options:UIViewAnimationCurveEaseOut
+                                                  animations:^() {
+                                                      arrowImageView.transform = CGAffineTransformMakeRotation(angle);
+                                                  }
+                                                  completion:^(BOOL finished) {}];
+                             }];
+        }
+        lastAngle=angle;
         reading.text = display;
     }
     else if ([methodName isEqualToString:@"GRAPH"])

@@ -22,6 +22,7 @@
     NSArray *graphData;
     int mode;
     NSDate *when;
+    float lastAngle;
 }
 
 @property (nonatomic, retain) IBOutlet UISegmentedControl *viewChanger;
