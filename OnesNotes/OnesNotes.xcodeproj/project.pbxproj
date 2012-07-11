@@ -601,7 +601,7 @@
 				65486D2F131CB4260010A56C /* XML */,
 			);
 			name = Libraries;
-			path = ../Libraries;
+			path = ../../Libraries;
 			sourceTree = "<group>";
 		};
 		65486D0E131CB4260010A56C /* HTTP */ = {
