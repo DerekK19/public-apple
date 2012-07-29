@@ -10,4 +10,9 @@
 
 @interface DWMViewController : UIViewController
 
+@property (nonatomic, retain) IBOutlet UIButton *doItButton;
+
+
+- (IBAction)willDoIt:(id)sender;
+
 @end

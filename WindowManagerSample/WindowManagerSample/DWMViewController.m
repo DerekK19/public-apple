@@ -7,12 +7,15 @@
 //
 
 #import "DWMViewController.h"
+#import "DWMAppletViewController.h"
 
 @interface DWMViewController ()
 
 @end
 
 @implementation DWMViewController
+
+@synthesize doItButton;
 
 - (void)viewDidLoad
 {
@@ -29,6 +32,13 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
+}
+
+- (IBAction)willDoIt:(id)sender
+{
+    DWMAppletViewController *appletViewController = [[DWMAppletViewController alloc]initWithNibName:nil
+                                                                                             bundle:nil];
+    [appletViewController view];
 }
 
 @end

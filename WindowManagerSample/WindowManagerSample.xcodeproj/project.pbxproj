@@ -15,6 +15,7 @@
 		65C2006215C4C034001EFD23 /* DWMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2006115C4C034001EFD23 /* DWMAppDelegate.m */; };
 		65C2006515C4C034001EFD23 /* DWMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2006415C4C034001EFD23 /* DWMViewController.m */; };
 		65C2006815C4C034001EFD23 /* DWMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C2006615C4C034001EFD23 /* DWMViewController.xib */; };
+		65C2007015C4C1DB001EFD23 /* DWMAppletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2006F15C4C1DB001EFD23 /* DWMAppletViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,15 +23,17 @@
 		65C2005115C4C034001EFD23 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		65C2005315C4C034001EFD23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65C2005515C4C034001EFD23 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		65C2005915C4C034001EFD23 /* WindowManagerSample-Info.plist */ = {isa = PBXFileReference; path = "WindowManagerSample-Info.plist"; sourceTree = "<group>"; };
+		65C2005915C4C034001EFD23 /* WindowManagerSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WindowManagerSample-Info.plist"; sourceTree = "<group>"; };
 		65C2005B15C4C034001EFD23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		65C2005D15C4C034001EFD23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		65C2005F15C4C034001EFD23 /* WindowManagerSample-Prefix.pch */ = {isa = PBXFileReference; path = "WindowManagerSample-Prefix.pch"; sourceTree = "<group>"; };
-		65C2006015C4C034001EFD23 /* DWMAppDelegate.h */ = {isa = PBXFileReference; path = DWMAppDelegate.h; sourceTree = "<group>"; };
+		65C2005F15C4C034001EFD23 /* WindowManagerSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WindowManagerSample-Prefix.pch"; sourceTree = "<group>"; };
+		65C2006015C4C034001EFD23 /* DWMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWMAppDelegate.h; sourceTree = "<group>"; };
 		65C2006115C4C034001EFD23 /* DWMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWMAppDelegate.m; sourceTree = "<group>"; };
-		65C2006315C4C034001EFD23 /* DWMViewController.h */ = {isa = PBXFileReference; path = DWMViewController.h; sourceTree = "<group>"; };
+		65C2006315C4C034001EFD23 /* DWMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWMViewController.h; sourceTree = "<group>"; };
 		65C2006415C4C034001EFD23 /* DWMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWMViewController.m; sourceTree = "<group>"; };
 		65C2006715C4C034001EFD23 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DWMViewController.xib; sourceTree = "<group>"; };
+		65C2006E15C4C1DB001EFD23 /* DWMAppletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWMAppletViewController.h; path = ../../../AppletWindow/DWMAppletViewController.h; sourceTree = "<group>"; };
+		65C2006F15C4C1DB001EFD23 /* DWMAppletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWMAppletViewController.m; path = ../../../AppletWindow/DWMAppletViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 				65C2006415C4C034001EFD23 /* DWMViewController.m */,
 				65C2006615C4C034001EFD23 /* DWMViewController.xib */,
 				65C2005815C4C034001EFD23 /* Supporting Files */,
+				65C2006E15C4C1DB001EFD23 /* DWMAppletViewController.h */,
+				65C2006F15C4C1DB001EFD23 /* DWMAppletViewController.m */,
 			);
 			path = WindowManagerSample;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				65C2005E15C4C034001EFD23 /* main.m in Sources */,
 				65C2006215C4C034001EFD23 /* DWMAppDelegate.m in Sources */,
 				65C2006515C4C034001EFD23 /* DWMViewController.m in Sources */,
+				65C2007015C4C1DB001EFD23 /* DWMAppletViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
