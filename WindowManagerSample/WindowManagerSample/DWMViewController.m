@@ -38,7 +38,20 @@
 {
     DWMAppletViewController *appletViewController = [[DWMAppletViewController alloc]initWithNibName:nil
                                                                                              bundle:nil];
-    [appletViewController view];
+    
+    [appletViewController setAppletFrame:CGRectMake(100.0, 100.0, 320.0, 480.0)];
+    [appletViewController addLeftHeaderButton:@"Hello"
+                               withCallbackId:@"Hi"
+                                      andType:nil];
+    
+    [appletViewController addRightHeaderButton:@"Continue"
+                                 withBadgeText:@"0"
+                                andBadgeColour:@"Red"
+                                andScaleFactor:0.5
+                                 andCallbackId:@"continue"
+                                       andType:@"CallToActionWithArrow"];
+    
+    [self presentViewController:appletViewController animated:YES completion:nil];
 }
 
 @end
