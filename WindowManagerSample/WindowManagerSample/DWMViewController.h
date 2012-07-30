@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DWMViewController : UIViewController
+@interface DWMViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UIButton *doItButton;
+@property (nonatomic, retain) IBOutlet UIPickerView *leftPicker;
+@property (nonatomic, retain) IBOutlet UIPickerView *rightPicker;
 
 
 - (IBAction)willDoIt:(id)sender;

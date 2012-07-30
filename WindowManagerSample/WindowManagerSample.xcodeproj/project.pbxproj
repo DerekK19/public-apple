@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65630E8115C67F9D0088567E /* button-bar-item-black-arrow-stretch.png in Resources */ = {isa = PBXBuildFile; fileRef = 65630E7D15C67F9D0088567E /* button-bar-item-black-arrow-stretch.png */; };
+		65630E8215C67F9D0088567E /* button-bar-item-black-arrow-stretch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65630E7E15C67F9D0088567E /* button-bar-item-black-arrow-stretch@2x.png */; };
+		65630E8315C67F9D0088567E /* button-bar-item-black-stretch.png in Resources */ = {isa = PBXBuildFile; fileRef = 65630E7F15C67F9D0088567E /* button-bar-item-black-stretch.png */; };
+		65630E8415C67F9D0088567E /* button-bar-item-black-stretch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65630E8015C67F9D0088567E /* button-bar-item-black-stretch@2x.png */; };
 		65C2005215C4C034001EFD23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C2005115C4C034001EFD23 /* UIKit.framework */; };
 		65C2005415C4C034001EFD23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C2005315C4C034001EFD23 /* Foundation.framework */; };
 		65C2005615C4C034001EFD23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C2005515C4C034001EFD23 /* CoreGraphics.framework */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65630E7D15C67F9D0088567E /* button-bar-item-black-arrow-stretch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-bar-item-black-arrow-stretch.png"; sourceTree = "<group>"; };
+		65630E7E15C67F9D0088567E /* button-bar-item-black-arrow-stretch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-bar-item-black-arrow-stretch@2x.png"; sourceTree = "<group>"; };
+		65630E7F15C67F9D0088567E /* button-bar-item-black-stretch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-bar-item-black-stretch.png"; sourceTree = "<group>"; };
+		65630E8015C67F9D0088567E /* button-bar-item-black-stretch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-bar-item-black-stretch@2x.png"; sourceTree = "<group>"; };
 		65C2004D15C4C034001EFD23 /* WindowManagerSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WindowManagerSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C2005115C4C034001EFD23 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		65C2005315C4C034001EFD23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -128,6 +136,10 @@
 		71DE60A215C62FB6002427DA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65630E7D15C67F9D0088567E /* button-bar-item-black-arrow-stretch.png */,
+				65630E7E15C67F9D0088567E /* button-bar-item-black-arrow-stretch@2x.png */,
+				65630E7F15C67F9D0088567E /* button-bar-item-black-stretch.png */,
+				65630E8015C67F9D0088567E /* button-bar-item-black-stretch@2x.png */,
 				71DE60AD15C63A64002427DA /* logo_header_44.png */,
 				71DE60AE15C63A64002427DA /* logo_header_44@2x.png */,
 				71DE60AB15C63A35002427DA /* blank_header_44.png */,
@@ -199,6 +211,10 @@
 				71DE60AC15C63A35002427DA /* blank_header_44.png in Resources */,
 				71DE60AF15C63A64002427DA /* logo_header_44.png in Resources */,
 				71DE60B015C63A64002427DA /* logo_header_44@2x.png in Resources */,
+				65630E8115C67F9D0088567E /* button-bar-item-black-arrow-stretch.png in Resources */,
+				65630E8215C67F9D0088567E /* button-bar-item-black-arrow-stretch@2x.png in Resources */,
+				65630E8315C67F9D0088567E /* button-bar-item-black-stretch.png in Resources */,
+				65630E8415C67F9D0088567E /* button-bar-item-black-stretch@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

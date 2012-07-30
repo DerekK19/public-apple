@@ -226,6 +226,8 @@
     BOOL isCustomDrawButton = buttonType && [buttonType length] > 0;
     BOOL isCallToActionButton = isCustomDrawButton && [buttonType isEqualToString:@"CallToAction"];
     BOOL isCallToActionButtonWithArrow = isCustomDrawButton && [buttonType isEqualToString:@"CallToActionWithArrow"];
+    BOOL isStandardButton = isCustomDrawButton && [buttonType isEqualToString:@"Standard"];
+    BOOL isStandardButtonWithArrow = isCustomDrawButton && [buttonType isEqualToString:@"StandardWithArrow"];
     
     // Text width
     UIFont *buttonFont = [UIFont boldSystemFontOfSize:12.0];
@@ -244,7 +246,10 @@
         [button setIsAccessibilityElement:YES];
     }
     // Custom draw button
-    else if (isCustomDrawButton && (isCallToActionButton || isCallToActionButtonWithArrow))
+    else if (isCustomDrawButton && (isCallToActionButton ||
+                                    isCallToActionButtonWithArrow ||
+                                    isStandardButton ||
+                                    isStandardButtonWithArrow))
     {
         button =[UIButton buttonWithType:UIButtonTypeCustom];
         [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
@@ -254,7 +259,10 @@
         label.font = buttonFont;
         label.textAlignment = UITextAlignmentCenter;
         label.backgroundColor = [UIColor clearColor];
-        label.shadowColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:0.9];
+        if (isStandardButton || isStandardButtonWithArrow)
+            label.textColor = [UIColor whiteColor];
+        else
+            label.shadowColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:0.9];
         label.shadowOffset = CGSizeMake(0.0, 1.0);
         
         UIImage *image;
@@ -262,12 +270,26 @@
             // 10.0px left and 12px right padding hence 22.0 + titleTextWidth
             button.frame = CGRectMake(0.0, 0.0, 22.0 + titleTextWidth, kButtonBarItemHeight);
             label.frame = CGRectMake(button.frame.origin.x - 2.0, button.frame.origin.y - 1.0, button.frame.size.width, button.frame.size.height);
-            image = [[UIImage imageNamed:@"button-bar-item-yellow-arrow-stretch"] stretchableImageWithLeftCapWidth:12.0 topCapHeight:0];
-        } else {
+            image = [[UIImage imageNamed:@"button-bar-item-yellow-arrow-stretch"] stretchableImageWithLeftCapWidth:12.0
+                                                                                                      topCapHeight:0];
+        } else if (isCallToActionButton) {
             // 20.0px left and right padding hence 20.0 + titleTextWidth
             button.frame = CGRectMake(0.0, 0.0, 20.0 + titleTextWidth, kButtonBarItemHeight);
             label.frame = CGRectMake(button.frame.origin.x, button.frame.origin.y - 1.0, button.frame.size.width, button.frame.size.height);
-            image = [[UIImage imageNamed:@"button-bar-item-yellow-stretch"] stretchableImageWithLeftCapWidth:4.0 topCapHeight:0];
+            image = [[UIImage imageNamed:@"button-bar-item-yellow-stretch"] stretchableImageWithLeftCapWidth:4.0
+                                                                                                topCapHeight:0];
+        } else if (isStandardButtonWithArrow) {
+            // 4.0px left and 16px right padding hence 20.0 + titleTextWidth
+            button.frame = CGRectMake(0.0, 0.0, 20.0 + titleTextWidth, kButtonBarItemHeight);
+            label.frame = CGRectMake(button.frame.origin.x + 4.0, button.frame.origin.y - 1.0, button.frame.size.width, button.frame.size.height);
+            image = [[UIImage imageNamed:@"button-bar-item-black-arrow-stretch"] stretchableImageWithLeftCapWidth:12.0
+                                                                                                     topCapHeight:0];
+        } else if (isStandardButton) {
+            // 20.0px left and right padding hence 20.0 + titleTextWidth
+            button.frame = CGRectMake(0.0, 0.0, 20.0 + titleTextWidth, kButtonBarItemHeight);
+            label.frame = CGRectMake(button.frame.origin.x, button.frame.origin.y - 1.0, button.frame.size.width, button.frame.size.height);
+            image = [[UIImage imageNamed:@"button-bar-item-black-stretch"] stretchableImageWithLeftCapWidth:4.0
+                                                                                               topCapHeight:0];
         }
         
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
@@ -279,8 +301,11 @@
     {
         button=[UIButton buttonWithType:UIButtonTypeRoundedRect];
         button.frame= CGRectMake(0.0, 0.0, 20.0 + titleTextWidth, kButtonBarItemHeight);
-        [button setTitle:title forState:UIControlStateNormal];
-        [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:title
+                forState:UIControlStateNormal];
+        [button addTarget:self
+                   action:action
+         forControlEvents:UIControlEventTouchUpInside];
     }
     
     return button;
@@ -288,7 +313,10 @@
 
 - (void) showStandardLeftHeaderButton
 {
-    
+    _leftButton = [self getButtonFromTitle:@""
+                                 andAction:@selector(leftButtonSelect:)
+                                   andType:@"StandardWithArrow"];
+    [_topBar addSubview:_leftButton];
 }
 
 - (void) addLeftHeaderButton:(NSString *)title
@@ -298,7 +326,9 @@
     DEBUGLog(@"%@", title);
     
 //    self.leftCallbackId = callbackId;
-    _leftButton = [self getButtonFromTitle:title andAction:@selector(leftButtonSelect:) andType:buttonType];
+    _leftButton = [self getButtonFromTitle:title
+                                 andAction:@selector(leftButtonSelect:)
+                                   andType:buttonType];
     [_topBar addSubview:_leftButton];
 //    overridableNavigationItem.leftBarButtonItem = leftBarButton;
 //    [overridableNavigationItem setLeftBarButtonItem:leftBarButton animated:YES];
@@ -312,8 +342,10 @@
                 andCallbackId:(NSString *)callbackId
                       andType:(NSString *)buttonType
 {
-    //    self.leftCallbackId = callbackId;
-    _rightButton = [self getButtonFromTitle:title andAction:@selector(rightButtonSelect:) andType:buttonType];
+    //    self.rightCallbackId = callbackId;
+    _rightButton = [self getButtonFromTitle:title
+                                  andAction:@selector(rightButtonSelect:)
+                                    andType:buttonType];
     [_topBar addSubview:_rightButton];
     //    overridableNavigationItem.leftBarButtonItem = leftBarButton;
     //    [overridableNavigationItem setLeftBarButtonItem:leftBarButton animated:YES];
@@ -322,11 +354,11 @@
 
 - (void) removeLeftHeaderButton
 {
-    
+    [_leftButton removeFromSuperview];
 }
 - (void) removeRightHeaderButton
 {
-    
+    [_rightButton removeFromSuperview];
 }
 
 @end
