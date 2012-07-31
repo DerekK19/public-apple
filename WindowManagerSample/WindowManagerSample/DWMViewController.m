@@ -78,7 +78,8 @@ numberOfRowsInComponent:(NSInteger)component
 - (IBAction)willDoIt:(id)sender
 {
     DWMAppletViewController *appletViewController = [[DWMAppletViewController alloc]initWithNibName:nil
-                                                                                             bundle:nil];
+                                                                                             bundle:nil
+                                                                                             parent:self];
     
     [appletViewController setAppletFrame:CGRectMake(100.0, 100.0, 320.0, 480.0)];
     
@@ -95,9 +96,9 @@ numberOfRowsInComponent:(NSInteger)component
 
 //    [appletViewController showStandardLeftHeaderButton];
     
-    [self presentViewController:appletViewController
-                       animated:YES
-                     completion:nil];
+    [appletViewController presentViewController:appletViewController
+                                       animated:YES
+                                     completion:nil];
 }
 
 @end

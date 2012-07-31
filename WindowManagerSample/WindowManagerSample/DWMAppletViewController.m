@@ -15,6 +15,10 @@
 
 @interface DWMAppletViewController ()
 
+/**
+ The parent view controller, which will host this applet
+ */
+@property UIViewController *parent;
 @property (nonatomic, retain) UIView *topBar;
 @property (nonatomic, retain) UIView *topBarLeft;
 @property (nonatomic, retain) UIView *topBarRight;
@@ -32,7 +36,7 @@
 
 @implementation DWMAppletViewController
 
-@synthesize webView = _webView;
+@synthesize parent = _parent;
 @synthesize appletFrame = _appletFrame;
 @synthesize topBar = _topBar;
 @synthesize topBarLeft = _topBarLeft;
@@ -40,12 +44,15 @@
 @synthesize leftButton = _leftButton;
 @synthesize rightButton = _rightButton;
 @synthesize webBackground = _webBackground;
+@synthesize webView = _webView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil
+               bundle:(NSBundle *)nibBundleOrNil
+               parent:(UIViewController *)parent
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _parent = parent;
     }
     return self;
 }
@@ -187,8 +194,10 @@
 
 #pragma mark - Modal dialog behaviour
 
-- (void)presentModalViewController:(UIViewController *)modalViewController animated:(BOOL)animated
+- (void)presentModalViewController:(UIViewController *)modalViewController
+                          animated:(BOOL)animated
 {
+    DEBUGLog(@"");
     [self presentViewController:modalViewController
                        animated:animated
                      completion:nil];
@@ -197,6 +206,7 @@
 
 - (void) dismissModalViewControllerAnimated:(BOOL)animated
 {
+    DEBUGLog(@"");
     [self dismissViewControllerAnimated:animated
                              completion:nil];
 }
@@ -205,15 +215,33 @@
                       animated:(BOOL)flag
                     completion:(void (^)(void))completion
 {
-    [super presentViewController:viewControllerToPresent
-                        animated:flag
-                      completion:completion];
+    DEBUGLog(@"");
+    [UIView animateWithDuration:0.75
+                     animations:^{
+                         [UIView setAnimationCurve:UIViewAnimationOptionTransitionCrossDissolve];
+                         [_parent.view addSubview:self.view];
+                         [UIView setAnimationTransition:UIViewAnimationTransitionNone
+                                                forView:self.navigationController.view
+                                                  cache:NO];
+                     }];
+
+//    [super presentViewController:viewControllerToPresent
+//                        animated:flag
+//                      completion:completion];
 }
 
 - (void) dismissViewControllerAnimated:(BOOL)flag
                             completion:(void (^)(void))completion
 {
-    [super dismissViewControllerAnimated:flag completion:completion];
+    DEBUGLog(@"");
+    [UIView animateWithDuration:0.75
+                     animations:^{
+                         [UIView setAnimationCurve:UIViewAnimationOptionTransitionCrossDissolve];
+                         [super dismissViewControllerAnimated:flag completion:completion];
+                         [UIView setAnimationTransition:UIViewAnimationTransitionNone
+                                                forView:self.navigationController.view
+                                                  cache:NO];
+                     }];
 }
 
 #pragma mark - Added header button behaviour

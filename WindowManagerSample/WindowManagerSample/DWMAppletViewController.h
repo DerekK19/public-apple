@@ -14,8 +14,14 @@
 /** @brief A web view - which will be handed down to the base web view controller */
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 
+/**
+ The frame, which defines the size of the applet window
+ */
 @property CGRect appletFrame;
 
+-(id)initWithNibName:(NSString *)nibNameOrNil
+              bundle:(NSBundle *)nibBundleOrNil
+              parent:(UIViewController *)parent;
 /**
  @brief Show the standard left-hand navigation button
  
