@@ -7,13 +7,9 @@
 //
 
 #import "DGK_WeatherAppDelegate.h"
-
 #import "DGK_WeatherViewController.h"
 
 @implementation DGK_WeatherAppDelegate
-
-@synthesize window = _window;
-@synthesize viewController = _viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -22,6 +18,7 @@
     self.viewController = [[DGK_WeatherViewController alloc] initWithNibName:@"DGK_WeatherViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    DEBUGLog(@"");
     return YES;
 }
 

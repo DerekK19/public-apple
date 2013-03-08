@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @class DGK_WeatherViewController;
 
 @interface DGK_WeatherAppDelegate : UIResponder <UIApplicationDelegate>
