@@ -1,27 +1,21 @@
 //
-//  DGK_WeatherAppDelegate.m
-//  Weather
+//  DKBSAppDelegate.m
+//  BlueServer
 //
-//  Created by Derek Knight on 5/04/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Derek Knight on 10/03/13.
+//  Copyright (c) 2013 Derek Knight. All rights reserved.
 //
 
-#import "DGK_WeatherAppDelegate.h"
-#import "DGK_WeatherViewController.h"
+#import "DKBSAppDelegate.h"
 
-@implementation DGK_WeatherAppDelegate
+@implementation DKBSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[DGK_WeatherViewController alloc] initWithNibName:@"DGK_WeatherViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
-    DEBUGLog(@"");
     return YES;
 }
-
+							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

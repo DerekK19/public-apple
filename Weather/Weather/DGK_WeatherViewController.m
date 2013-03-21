@@ -8,26 +8,14 @@
 
 #define LOW_LEVEL_DEBUG FALSE
 
-#import "Logging.h"
 #import "DGK_WeatherViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface DGK_WeatherViewController ()
 
-@property DGKJSONRequest *request;
-
 @end
 
 @implementation DGK_WeatherViewController
-
-@synthesize viewChanger;
-@synthesize gaugeView;
-@synthesize graphView;
-@synthesize gauge;
-@synthesize reading;
-@synthesize label;
-
-@synthesize request;
 
 - (void)viewDidLoad
 {
@@ -35,6 +23,8 @@
     
     mode = MODE_TEMPERATURE;
     when = [NSDate date];
+    
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"wood-grain"]];
     
     UIImage *needleImage = [UIImage imageNamed:@"gauge-needle.png"];
     arrowImageView = [[UIImageView alloc] initWithImage:needleImage];
@@ -44,10 +34,10 @@
     arrowImageView.layer.anchorPoint = CGPointMake(0.5, 0.13);
     arrowImageView.opaque = YES;
     
-    graph = [[CPTXYGraph alloc] initWithFrame: graphView.bounds];
+    graph = [[CPTXYGraph alloc] initWithFrame: _graphView.bounds];
     
-    graphView.backgroundColor = [UIColor colorWithRed:(16.0/255.0) green:(16.0/255.0) blue:(54.0/255.0) alpha:1.0],
-    graphView.hostedGraph = graph;
+    _graphView.backgroundColor = [UIColor colorWithRed:(16.0/255.0) green:(16.0/255.0) blue:(54.0/255.0) alpha:1.0],
+    _graphView.hostedGraph = graph;
     graph.plotAreaFrame.masksToBorder = NO;
     graph.paddingLeft = 35.0;
     graph.paddingTop = 10.0;
@@ -84,25 +74,38 @@
     axisSet.xAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
     axisSet.xAxis.majorTickLocations = [[NSSet alloc]initWithObjects:
                                         [NSNumber numberWithInt:8*3],
-                                        [NSNumber numberWithInt:16*3],
+//                                        [NSNumber numberWithInt:16*3],
                                         [NSNumber numberWithInt:24*3],
-                                        [NSNumber numberWithInt:32*3],
+//                                        [NSNumber numberWithInt:32*3],
                                         [NSNumber numberWithInt:40*3],
-                                        [NSNumber numberWithInt:48*3],
+//                                        [NSNumber numberWithInt:48*3],
                                         [NSNumber numberWithInt:56*3],
-                                        [NSNumber numberWithInt:64*3],
+//                                        [NSNumber numberWithInt:64*3],
                                         [NSNumber numberWithInt:72*3],
-                                        [NSNumber numberWithInt:80*3],
+//                                        [NSNumber numberWithInt:80*3],
                                         [NSNumber numberWithInt:88*3],
-                                        [NSNumber numberWithInt:96*3],
+//                                        [NSNumber numberWithInt:96*3],
                                         nil];
-    NSArray *xAxisLabels = [NSArray arrayWithObjects:@"2am", @"4am", @"6am", @"8am", @"10am", @"12pm", @"2pm", @"4pm", @"6pm", @"8pm", @"10pm", @"12am", nil];
+    NSArray *xAxisLabels = [NSArray arrayWithObjects:
+                            @"2am",
+//                            @"4am",
+                            @"6am",
+//                            @"8am",
+                            @"10am",
+//                            @"12pm",
+                            @"2pm",
+//                            @"4pm",
+                            @"6pm",
+//                            @"8pm",
+                            @"10pm",
+//                            @"12am",
+                            nil];
     NSUInteger labelLocation = 0;
     NSMutableSet *customLabels = [NSMutableSet setWithCapacity:[xAxisLabels count]];
     for (NSNumber *tickLocation in axisSet.xAxis.majorTickLocations) {
         CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText:[xAxisLabels objectAtIndex:labelLocation++]
                                                           textStyle:axisSet.xAxis.labelTextStyle];
-        newLabel.tickLocation = [[NSNumber numberWithInt:labelLocation*8*3] decimalValue];
+        newLabel.tickLocation = [[NSNumber numberWithInt:(labelLocation*2-1)*8*3] decimalValue];
         newLabel.offset = axisSet.xAxis.labelOffset + axisSet.xAxis.majorTickLength;
         newLabel.rotation = M_PI_2;
         [customLabels addObject:newLabel];
@@ -186,150 +189,6 @@
     }
 }
 
-#pragma mark - JSON Request delegate
-
-- (void)json:(DGKJSONRequest *)json
-  foundFault:(NSString *)methodName
-            :(NSString *)fault
-{
-    DEBUGLog(@"%@", fault);
-}
-
-- (void)json:(DGKJSONRequest *)json
-foundResponse:(NSString *)methodName
-            :(int)response
-            :(NSString *)reason
-{
-    DEBUGLog(@"");
-}
-
-- (void)json:(DGKJSONRequest *)json
- foundResult:(NSString *)methodName
-            :(id)result
-{
-    DEBUGLog(@"");
-    
-    if ([methodName isEqualToString:@"REFRESH"])
-    {
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        NSNumber *value = nil;
-        float angle;
-        NSString *display;
-        switch(mode)
-        {
-            case MODE_TEMPERATURE:
-                value = [formatter numberFromString:[result valueForKey: @"Temperature"]];
-                angle = ([value floatValue]-10) / 20 * M_PI * 1.74; // Range is 10-30 degrees Centigrade
-                display = [NSString stringWithFormat:@"%2.1f \u00B0C", [value floatValue]];
-                break;
-            case MODE_CALIBRATE:
-                value = [NSNumber numberWithInt:30];
-                angle = ([value floatValue]-10) / 20 * M_PI * 1.74;
-                display = [NSString stringWithFormat:@"%2.1f \u00B0C", [value floatValue]];
-                break;
-            case MODE_HUMIDITY:
-                value = [formatter numberFromString:[result valueForKey: @"Humidity"]];
-                angle = ([value floatValue]-30) / 40 * M_PI * 1.74; // Range is 30-70 % Humidity
-                display = [NSString stringWithFormat:@"%2.1f %% RH", [value floatValue]];
-                break;
-        }
-        if (value == nil) return;
-        
-        if (angle < 0) angle = 0;
-        if (angle > M_PI * 1.74) angle = M_PI * 1.74;
-        
-        if (abs (angle-lastAngle) < M_PI)
-        {
-            [UIView animateWithDuration:1.0
-                                  delay:0
-                                options:UIViewAnimationCurveEaseInOut
-                             animations:^() {
-                                 arrowImageView.transform = CGAffineTransformMakeRotation(angle);
-                             }
-                             completion:^(BOOL finished) {}];
-        }
-        else // > 180 degreees, so go in two jumps or the needle will move anticlockwise
-        {
-            [UIView animateWithDuration:1.5
-                                  delay:0
-                                options:UIViewAnimationCurveEaseIn
-                             animations:^() {
-                                 arrowImageView.transform = CGAffineTransformMakeRotation((angle+lastAngle)/2);
-                             }
-                             completion:^(BOOL finished) {
-                                 [UIView animateWithDuration:1.5
-                                                       delay:0
-                                                     options:UIViewAnimationCurveEaseOut
-                                                  animations:^() {
-                                                      arrowImageView.transform = CGAffineTransformMakeRotation(angle);
-                                                  }
-                                                  completion:^(BOOL finished) {}];
-                             }];
-        }
-        lastAngle=angle;
-        reading.text = display;
-    }
-    else if ([methodName isEqualToString:@"GRAPH"])
-    {
-        graphData = result;
-        Float32 loY = 1000.0;
-        Float32 hiY = 0.0;
-        Float32 overlap = 0;
-        switch(mode)
-        {
-            case MODE_TEMPERATURE:
-                // X Axis == time, Y Axis = temp
-                for (NSDictionary *record in graphData) {
-                    Float32 val = [((NSNumber *)[record objectForKey:@"t"])floatValue];
-                    if (val < loY) loY = val; if (val > hiY) hiY = val;
-                }
-                overlap = 3;
-                break;
-            case MODE_HUMIDITY:
-                // X Axis == time, Y Axis = humidity
-                for (NSDictionary *record in graphData) {
-                    Float32 val = [((NSNumber *)[record objectForKey:@"h"])floatValue];
-                    if (val < loY) loY = val; if (val > hiY) hiY = val;
-                }
-                overlap = 2;
-                break;
-        }
-        loY -= 10;
-        hiY += 10;
-        CPTXYAxisSet *axisSet = (CPTXYAxisSet *)(graph.axisSet);
-        NSMutableSet *majorTicks = [[NSMutableSet alloc]init];
-        NSMutableSet *majorLabels = [[NSMutableSet alloc]init];
-        NSMutableSet *minorTicks = [[NSMutableSet alloc]init];
-        for (int i = loY; i <= hiY; i++)
-        {
-            if (i % 10 == 0)
-            {
-                [majorTicks addObject:[NSNumber numberWithInt:i]];
-                CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%d", i]
-                                                                  textStyle:axisSet.yAxis.labelTextStyle];
-                newLabel.tickLocation = [[NSNumber numberWithInt:i] decimalValue];
-                newLabel.offset = axisSet.yAxis.labelOffset + axisSet.yAxis.majorTickLength;
-                [majorLabels addObject:newLabel];
-            }            
-            [minorTicks addObject:[NSNumber numberWithInt:i]];
-        }
-        CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-        plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0-overlap) 
-                                                        length:CPTDecimalFromFloat(96*3+overlap)];
-        plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(loY-overlap) 
-                                                        length:CPTDecimalFromFloat(hiY-loY+overlap)];
-        axisSet.yAxis.majorTickLocations = majorTicks;
-        axisSet.yAxis.minorTickLocations = minorTicks;
-        axisSet.yAxis.axisLabels =  majorLabels;
-        axisSet.yAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
-        axisSet.xAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(loY);
-        axisSet.xAxis.gridLinesRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(loY)
-                                                                    length:CPTDecimalFromFloat(hiY)];
-        [graph reloadData];
-    }
-}
-
 #pragma mark - Swipe gesture recognisers
 
 - (IBAction)handleGraphSwipeLeft:(UISwipeGestureRecognizer *)sender
@@ -365,32 +224,160 @@ foundResponse:(NSString *)methodName
 
 - (IBAction)willRefresh:(id)sender
 {
-    request = [[DGKJSONRequest alloc]initWithDelegate:self];
-    if ([viewChanger selectedSegmentIndex] == 0)
+    AFJSONRequestOperation *operation;
+    NSURL *url;
+    NSURLRequest *request;
+    if ([_viewChanger selectedSegmentIndex] == 0)
     {
-        [request SendRequestWithUrl:[NSURL URLWithString:@"http://xyzzy.gordonknight.co.uk:8080"]
-                       andRequestId:@"REFRESH"
-                     andRequestType:@"POST"];
+        url = [NSURL URLWithString:@"http://xyzzy.gordonknight.co.uk:8080"];
+        request = [NSURLRequest requestWithURL:url];
+        
+        operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+                     {
+                         DEBUGLog(@"%@", JSON);
+                         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+                         [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+                         NSNumber *value = nil;
+                         float angle;
+                         NSString *display;
+                         switch(mode)
+                         {
+                             case MODE_TEMPERATURE:
+                                 value = [formatter numberFromString:[JSON valueForKey: @"Temperature"]];
+                                 angle = ([value floatValue]-10) / 20 * M_PI * 1.74; // Range is 10-30 degrees Centigrade
+                                 display = [NSString stringWithFormat:@"%2.1f \u00B0C", [value floatValue]];
+                                 break;
+                             case MODE_CALIBRATE:
+                                 value = [NSNumber numberWithInt:30];
+                                 angle = ([value floatValue]-10) / 20 * M_PI * 1.74;
+                                 display = [NSString stringWithFormat:@"%2.1f \u00B0C", [value floatValue]];
+                                 break;
+                             case MODE_HUMIDITY:
+                                 value = [formatter numberFromString:[JSON valueForKey: @"Humidity"]];
+                                 angle = ([value floatValue]-30) / 40 * M_PI * 1.74; // Range is 30-70 % Humidity
+                                 display = [NSString stringWithFormat:@"%2.1f %% RH", [value floatValue]];
+                                 break;
+                         }
+                         if (value == nil) return;
+                         
+                         if (angle < 0) angle = 0;
+                         if (angle > M_PI * 1.74) angle = M_PI * 1.74;
+                         
+                         if (abs (angle-lastAngle) < M_PI)
+                         {
+                             [UIView animateWithDuration:1.0
+                                                   delay:0
+                                                 options:UIViewAnimationOptionCurveEaseInOut
+                                              animations:^() {
+                                                  arrowImageView.transform = CGAffineTransformMakeRotation(angle);
+                                              }
+                                              completion:^(BOOL finished) {}];
+                         }
+                         else // > 180 degreees, so go in two jumps or the needle will move anticlockwise
+                         {
+                             [UIView animateWithDuration:1.5
+                                                   delay:0
+                                                 options:UIViewAnimationOptionCurveEaseIn
+                                              animations:^() {
+                                                  arrowImageView.transform = CGAffineTransformMakeRotation((angle+lastAngle)/2);
+                                              }
+                                              completion:^(BOOL finished) {
+                                                  [UIView animateWithDuration:1.5
+                                                                        delay:0
+                                                                      options:UIViewAnimationOptionCurveEaseOut
+                                                                   animations:^() {
+                                                                       arrowImageView.transform = CGAffineTransformMakeRotation(angle);
+                                                                   }
+                                                                   completion:^(BOOL finished) {}];
+                                              }];
+                         }
+                         lastAngle=angle;
+                         _reading.text = display;
+                     }
+                                                                    failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
+                     {
+                         DEBUGLog(@"%@", error);
+                     }];
+        [operation start];
     }
     else
-    {
+    {        
         NSString *URL = @"http://xyzzy.gordonknight.co.uk/weather/service/data/list?when=%@&source=%@";
         NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
         [formatter setDateFormat:@"yyyy-MM-dd"];
         NSString *date =[formatter stringFromDate:when];
-        switch(mode)
-        {
-            case MODE_TEMPERATURE:
-                [request SendRequestWithUrl:[NSURL URLWithString:[NSString stringWithFormat:URL,date,@"temperature"]]
-                               andRequestId:@"GRAPH"
-                             andRequestType:@"GET"];
-                break;
-            case MODE_HUMIDITY:
-                [request SendRequestWithUrl:[NSURL URLWithString:[NSString stringWithFormat:URL,date,@"humidity"]]
-                               andRequestId:@"GRAPH"
-                             andRequestType:@"GET"];
-                break;
-        }
+
+        url = [NSURL URLWithString:[NSString stringWithFormat:URL,date,mode == MODE_TEMPERATURE ? @"temperature" : @"humidity"]];
+        request = [NSURLRequest requestWithURL:url];
+        operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+                     {
+                         DEBUGLog(@"%@", JSON);
+                         graphData = JSON;
+                         Float32 loY = 1000.0;
+                         Float32 hiY = 0.0;
+                         Float32 overlap = 0;
+                         int yInterval = 1;
+                         switch(mode)
+                         {
+                             case MODE_TEMPERATURE:
+                                 // X Axis == time, Y Axis = temp
+                                 for (NSDictionary *record in graphData) {
+                                     Float32 val = [((NSNumber *)[record objectForKey:@"t"])floatValue];
+                                     if (val < loY) loY = val; if (val > hiY) hiY = val;
+                                 }
+                                 overlap = 3;
+                                 yInterval = 5;
+                                 break;
+                             case MODE_HUMIDITY:
+                                 // X Axis == time, Y Axis = humidity
+                                 for (NSDictionary *record in graphData) {
+                                     Float32 val = [((NSNumber *)[record objectForKey:@"h"])floatValue];
+                                     if (val < loY) loY = val; if (val > hiY) hiY = val;
+                                 }
+                                 overlap = 2;
+                                 yInterval = 10;
+                                 break;
+                         }
+                         loY -= 10;
+                         hiY += 10;
+                         CPTXYAxisSet *axisSet = (CPTXYAxisSet *)(graph.axisSet);
+                         NSMutableSet *majorTicks = [[NSMutableSet alloc]init];
+                         NSMutableSet *majorLabels = [[NSMutableSet alloc]init];
+                         NSMutableSet *minorTicks = [[NSMutableSet alloc]init];
+                         for (int i = loY; i <= hiY; i++)
+                         {
+                             if (i % yInterval == 0)
+                             {
+                                 [majorTicks addObject:[NSNumber numberWithInt:i]];
+                                 CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText:[NSString stringWithFormat:@"%d", i]
+                                                                                   textStyle:axisSet.yAxis.labelTextStyle];
+                                 newLabel.tickLocation = [[NSNumber numberWithInt:i] decimalValue];
+                                 newLabel.offset = axisSet.yAxis.labelOffset + axisSet.yAxis.majorTickLength;
+                                 [majorLabels addObject:newLabel];
+                             }
+                             [minorTicks addObject:[NSNumber numberWithInt:i]];
+                         }
+                         CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
+                         plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0-overlap)
+                                                                         length:CPTDecimalFromFloat(96*3+overlap)];
+                         plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(loY-overlap)
+                                                                         length:CPTDecimalFromFloat(hiY-loY+overlap)];
+                         axisSet.yAxis.majorTickLocations = majorTicks;
+                         axisSet.yAxis.minorTickLocations = minorTicks;
+                         axisSet.yAxis.axisLabels =  majorLabels;
+                         axisSet.yAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
+                         axisSet.xAxis.orthogonalCoordinateDecimal = CPTDecimalFromFloat(loY);
+                         axisSet.xAxis.gridLinesRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(loY)
+                                                                                     length:CPTDecimalFromFloat(hiY)];
+                         [graph reloadData];
+                     }
+                                                                    failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
+                     {
+                         DEBUGLog(@"%@", error);
+                     }];
+        [operation start];
     }
 }
 
@@ -400,16 +387,16 @@ foundResponse:(NSString *)methodName
     switch(mode)
     {
         case MODE_TEMPERATURE:
-            gauge.image = [UIImage imageNamed:@"gauge-background-1"];
-            label.text = @"Temperature";
+            _gauge.image = [UIImage imageNamed:@"gauge-background-1"];
+            _label.text = @"Temperature";
             break;
         case MODE_CALIBRATE:
-            gauge.image = [UIImage imageNamed:@"gauge-background-1"];
-            label.text = @"Temperature";
+            _gauge.image = [UIImage imageNamed:@"gauge-background-1"];
+            _label.text = @"Temperature";
             break;
         case MODE_HUMIDITY:
-            gauge.image = [UIImage imageNamed:@"gauge-background-2"];
-            label.text = @"Humidity";
+            _gauge.image = [UIImage imageNamed:@"gauge-background-2"];
+            _label.text = @"Humidity";
             break;
     }
     [self willRefresh:nil];
@@ -417,19 +404,19 @@ foundResponse:(NSString *)methodName
 
 - (IBAction)willChangeView:(id)sender
 {
-    if ([viewChanger selectedSegmentIndex] == 0)
+    if ([_viewChanger selectedSegmentIndex] == 0)
     {
         // Show gauge
-        [gaugeView setHidden:FALSE];
+        [_gaugeView setHidden:FALSE];
         [arrowImageView setHidden:FALSE];
-        [graphView setHidden:TRUE];
+        [_graphView setHidden:TRUE];
     }
     else
     {
         // Show graph
-        [gaugeView setHidden:TRUE];
+        [_gaugeView setHidden:TRUE];
         [arrowImageView setHidden:TRUE];
-        [graphView setHidden:FALSE];
+        [_graphView setHidden:FALSE];
     }
     [self willRefresh:nil];
 }

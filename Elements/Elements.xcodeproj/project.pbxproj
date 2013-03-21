@@ -195,7 +195,8 @@
 				651B8C3313592A160028A476 /* General */,
 			);
 			name = Libraries;
-			sourceTree = "<group>";
+			path = ../../../../../Users/derek/Solutions/Libraries;
+			sourceTree = DEVELOPER_DIR;
 		};
 		651B8C3313592A160028A476 /* General */ = {
 			isa = PBXGroup;
@@ -204,8 +205,8 @@
 				651B8C3413592A160028A476 /* Logging.h */,
 			);
 			name = General;
-			path = ../Libraries/General;
-			sourceTree = "<group>";
+			path = ../../../../../Users/derek/Solutions/Libraries/General;
+			sourceTree = DEVELOPER_DIR;
 		};
 		651B8C3513592A210028A476 /* HTTP */ = {
 			isa = PBXGroup;
