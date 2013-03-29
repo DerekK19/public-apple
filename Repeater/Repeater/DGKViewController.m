@@ -19,6 +19,7 @@
     NSTimer *_countdown;
     NSTimer *_trigger;
     UIColor *_initialBackground;
+    SystemSoundID _beep;
 }
 
 - (void)timerFired:(NSTimer *)timer;
@@ -65,6 +66,13 @@
                                                 selector:@selector(countdownTriggered:)
                                                 userInfo:nil
                                                  repeats:NO];
+        NSString* path = [[NSBundle mainBundle] pathForResource:@"beep"
+                                                         ofType:@"wav"];
+        if (path != nil)
+        {
+            NSURL* url = [NSURL fileURLWithPath:path];
+            AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &_beep);
+        }
         [self setResetButtonLabel:@"Stop"];
     }
     else
@@ -76,6 +84,8 @@
         _trigger = nil;
         [_countdown invalidate];
         _countdown = nil;
+        AudioServicesDisposeSystemSoundID(_beep);
+        _beep = 0;
         [self setLabelText:0];
         [self setResetButtonLabel:@"Start"];
     }
@@ -92,16 +102,7 @@
                                               selector:@selector(countdownTriggered:)
                                               userInfo:nil
                                                repeats:NO];
-    SystemSoundID mBeep;
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"beep"
-                                                     ofType:@"wav"];
-    if (path != nil)
-    {
-        NSURL* url = [NSURL fileURLWithPath:path];
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &mBeep);
-        AudioServicesPlaySystemSound(mBeep);
-        AudioServicesDisposeSystemSoundID(mBeep);
-    }
+    if (_beep != 0) AudioServicesPlaySystemSound(_beep);
 }
 
 - (void)countdownTriggered:(NSTimer *)timer

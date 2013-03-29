@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		659DC07C16FADB0200D7566B /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 659DC07B16FADB0200D7566B /* beep.wav */; };
 		65A2C0FE160F0BFB0093EEF1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A2C0FD160F0BFB0093EEF1 /* AudioToolbox.framework */; };
 		65ED7133160EF9E0003B50E0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65ED7132160EF9E0003B50E0 /* UIKit.framework */; };
 		65ED7135160EF9E0003B50E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65ED7134160EF9E0003B50E0 /* Foundation.framework */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		659DC07B16FADB0200D7566B /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
 		65A2C0FD160F0BFB0093EEF1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		65ED712E160EF9E0003B50E0 /* Repeater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Repeater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65ED7132160EF9E0003B50E0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -58,10 +60,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		659DC07A16FADB0200D7566B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				659DC07B16FADB0200D7566B /* beep.wav */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		65ED7123160EF9E0003B50E0 = {
 			isa = PBXGroup;
 			children = (
-				65A2C0FD160F0BFB0093EEF1 /* AudioToolbox.framework */,
 				65ED7138160EF9E0003B50E0 /* Repeater */,
 				65ED7131160EF9E0003B50E0 /* Frameworks */,
 				65ED712F160EF9E0003B50E0 /* Products */,
@@ -79,6 +88,7 @@
 		65ED7131160EF9E0003B50E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65A2C0FD160F0BFB0093EEF1 /* AudioToolbox.framework */,
 				65ED7132160EF9E0003B50E0 /* UIKit.framework */,
 				65ED7134160EF9E0003B50E0 /* Foundation.framework */,
 				65ED7136160EF9E0003B50E0 /* CoreGraphics.framework */,
@@ -95,6 +105,7 @@
 				65ED714B160EF9E0003B50E0 /* DGKViewController.m */,
 				65ED714D160EF9E0003B50E0 /* DGKViewController_iPhone.xib */,
 				65ED7150160EF9E0003B50E0 /* DGKViewController_iPad.xib */,
+				659DC07A16FADB0200D7566B /* Resources */,
 				65ED7139160EF9E0003B50E0 /* Supporting Files */,
 			);
 			path = Repeater;
@@ -172,6 +183,7 @@
 				65ED7149160EF9E0003B50E0 /* Default-568h@2x.png in Resources */,
 				65ED714F160EF9E0003B50E0 /* DGKViewController_iPhone.xib in Resources */,
 				65ED7152160EF9E0003B50E0 /* DGKViewController_iPad.xib in Resources */,
+				659DC07C16FADB0200D7566B /* beep.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
