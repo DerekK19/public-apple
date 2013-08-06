@@ -6,15 +6,14 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "CorePlot-CocoaTouch.h"
-#import "JSONRequest.h"
+#import <CorePlot-CocoaTouch.h>
+#import <AFJSONRequestOperation.h>
 
 #define MODE_CALIBRATE 0
 #define MODE_TEMPERATURE 1
 #define MODE_HUMIDITY 2
 
-@interface DGK_WeatherViewController : UIViewController <DGKJSONRequestDelegate, CPTPlotDataSource>
+@interface DGK_WeatherViewController : UIViewController <CPTPlotDataSource>
 
 {
     UIImageView *arrowImageView;

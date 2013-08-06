@@ -1,24 +1,28 @@
 //
-//  DGK_WeatherAppDelegate.m
-//  Weather
+//  DGKAppDelegate.m
+//  Repeater
 //
-//  Created by Derek Knight on 5/04/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Derek Knight on 23/09/12.
+//  Copyright (c) 2012 Derek Knight. All rights reserved.
 //
 
-#import "DGK_WeatherAppDelegate.h"
-#import "DGK_WeatherViewController.h"
+#import "DGKAppDelegate.h"
 
-@implementation DGK_WeatherAppDelegate
+#import "DGKViewController.h"
+
+@implementation DGKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[DGK_WeatherViewController alloc] initWithNibName:@"DGK_WeatherViewController" bundle:nil];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        self.viewController = [[DGKViewController alloc] initWithNibName:@"DGKViewController_iPhone" bundle:nil];
+    } else {
+        self.viewController = [[DGKViewController alloc] initWithNibName:@"DGKViewController_iPad" bundle:nil];
+    }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
-    DEBUGLog(@"");
     return YES;
 }
 

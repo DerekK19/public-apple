@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'Weather' target in the 'Weather' project
+// Prefix header for all source files of the 'Repeater' target in the 'Repeater' project
 //
 
 #import <Availability.h>
@@ -12,7 +12,3 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
-
-#import <NSLogger/LoggerClient.h>
-#import "Logging.h"
-
